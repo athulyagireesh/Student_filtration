@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    
+    <form action="" method="post" class="flex flex-col justify-evenly h-60">
+
+        {% csrf_token %}
+
+    <input type="text" name="name" id="name" placeholder="NAME :" value="{{std.name}}" class="border-2 border-black rounded px-2"><br><br>
+
+    <input type="email" name="email" id="email" placeholder="EMAIL :" value="{{std.email}}" class="border-2 border-black rounded px-2"><br><br>
+
+    <input type="age" name="age" id="age" placeholder="AGE :" value="{{std.age}}" class="border-2 border-black rounded px-2"><br><br>
+
+    <input type="tel" name="phone" id="phone" placeholder="PHONE NUMBER:"value="{{std.phone}}"  class="border-2 border-black rounded px-2"><br><br>
+
+    <!-- <select name="course" id="" >
+        <option selected disabled>----Select your Course----</option>
+        <option value="Python Full Stack">PYTHON FULL STACK</option>
+        <option value="Mern Stack">MERK STACK</option>
+        <option value="Flutter">FLUTTER</option>
+    </select> -->
+
+
+    <select name="course" id="" class="border-2 border-black rounded px-2">
+        <option disabled>---select course---</option>
+        {% for i in courses %}
+        <option value="{{i}}" {% if std.cname.pk == i.pk %} selected {% endif %}>{{i.cname}}</option>
+        {% endfor %}
+    </select><br><br>
+
+
+    <input type="submit" value="UPDATE" class="text-white bg-blue-500 rounded">
+    </form>
+</body>
+</html>

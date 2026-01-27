@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        td{
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Students Details</h1>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <select name="course" id=""  class="border-2 border-black rounded px-2">
+            <option selected disabled>----Select your Course----</option>
+            {% for i in courses %}
+            <option value="{{i}}">{{i}}</option>
+            {% endfor %}  
+        </select>
+        <input type="submit" value="search">
+        <a href="../"><input type="button" value="Clear"></a>         
+    </form>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Age</th>
+            <th>Phone</th>
+            <th>Course</th>
+            <th>Actions</th>
+        </tr>
+
+        {% for i in stds %}
+        <tr>
+            <td>{{ i.pk }}</td>
+            <td>{{ i.name }}</td>
+            <td>{{ i.email }}</td>
+            <td>{{ i.age }}</td>
+            <td>{{ i.phone }}</td>
+            <td>{{ i.cname}}</td>
+            <td><a href="../editstudents/{{i.pk}}">Edit</a></td>
+            <td><a href="../delete/{{i.pk}}" onclick="return confirm('Are you sure want to delete')">Delete</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <a href="../logout/{{i.pk}}">
+    <button>LOGOUT</button>
+    <a href="../addstudent">
+        <button>Add Student</button>
+    </a>
+</body>
+</html>

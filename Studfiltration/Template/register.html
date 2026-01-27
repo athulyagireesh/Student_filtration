@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" method="post" class="flex flex-col justify-evenly h-60">
+
+        {% csrf_token %}
+
+    <input type="text" name="firstname" id="" placeholder="FIRST NAME :" value="{{std.name}}" class="border-2 border-black rounded px-2"><br><br>
+
+    <input type="text" name="username" id="" placeholder="USER NAME :" value="{{std.name}}" class="border-2 border-black rounded px-2"><br><br>
+
+    <input type="email" name="email" id="" placeholder="EMAIL :"value="{{std.phone}}"  class="border-2 border-black rounded px-2"><br><br>
+
+    <input type="password" name="password" id="" placeholder="PASSWORD :" value="{{std.email}}" class="border-2 border-black rounded px-2"><br><br>
+
+    <input type="password" name="cnf_password" id="" placeholder="CONFIRM PASSWORD :" value="{{std.age}}" class="border-2 border-black rounded px-2"><br><br>
+
+    <input type="submit" value="REGISTER" class="text-white bg-blue-500 rounded">
+
+</body>
+</html>
