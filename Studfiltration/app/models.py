@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Course(models.Model):
@@ -12,6 +13,7 @@ class Students(models.Model):
     email=models.EmailField()
     age=models.IntegerField()
     phone=models.IntegerField()
+    uname=models.ForeignKey(User,on_delete=models.CASCADE)
     cname=models.ForeignKey(Course,on_delete=models.CASCADE)
     
 

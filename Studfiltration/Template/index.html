@@ -11,6 +11,7 @@
     </style>
 </head>
 <body>
+    <h1>{{user}}</h1>
     <h1>Students Details</h1>
     <form action="" method="POST">
         {% csrf_token %}
@@ -48,10 +49,11 @@
         {% endfor %}
     </table>
 
-    <a href="../logout/{{i.pk}}">
+
+    <a href="../logout">
     <button>LOGOUT</button>
+
     <a href="../addstudent">
         <button>Add Student</button>
-    </a>
 </body>
 </html>
